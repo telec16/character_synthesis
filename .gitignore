@@ -98,7 +98,14 @@ out/
 # End of https://www.gitignore.io/api/eagle,kicad,ltspice
 
 
+### Lattice ###
+lattice/*
+!lattice/*.vhd
+!lattice/*.ldf
+!lattice/*.lpf
+!lattice/*.sty
 
+### Others ###
 !.gitignore
 *.zip
 
