@@ -80,7 +80,7 @@ escue-backup/
 bom/
 
 # Gerber export output
-out/
+gerbers/
 
 ### LTspice ###
 # gitignore template for LTspice
@@ -104,6 +104,8 @@ lattice/*
 !lattice/*.ldf
 !lattice/*.lpf
 !lattice/*.sty
+!lattice/makefile
+!lattice/testbenches/
 
 ### Others ###
 !.gitignore
