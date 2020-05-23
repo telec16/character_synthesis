@@ -104,6 +104,7 @@ lattice/*
 !lattice/*.ldf
 !lattice/*.lpf
 !lattice/*.sty
+!lattice/*.sdc
 !lattice/makefile
 !lattice/testbenches/
 

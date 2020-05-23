@@ -38,7 +38,7 @@ ARCHITECTURE Behavior OF DIVoddN IS
 	
 BEGIN
 
-    PROCESS(clk_in)
+    PROCESS(clrn, clk_in)
     BEGIN
 		IF clrn = '0' THEN
 			count_R <= STOP - to_unsigned(DELAY, ADDR_LEN);

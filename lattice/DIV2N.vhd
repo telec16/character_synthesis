@@ -33,7 +33,7 @@ ARCHITECTURE Behavior OF DIV2N IS
 	
 BEGIN
 
-    PROCESS(clk_in)
+    PROCESS(clrn, clk_in)
     BEGIN
 		IF clrn = '0' THEN
 			count <= 0 + to_unsigned(DELAY, ADDR_LEN);

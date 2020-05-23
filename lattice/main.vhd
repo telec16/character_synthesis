@@ -24,8 +24,8 @@ ENTITY main IS
 			blanking : OUT STD_LOGIC; -- Blanking output
 
 			led	     : OUT STD_LOGIC; -- Debug led
-			pin1     : IN  STD_LOGIC; -- Free pin
-			pin2     : IN  STD_LOGIC  -- Free pin
+			pin1     : OUT STD_LOGIC; -- Free pin
+			pin2     : OUT STD_LOGIC  -- Free pin
 
          );
 END main;
@@ -45,19 +45,19 @@ ARCHITECTURE Behavior OF main IS
 		);
 	END COMPONENT;
 	
-	COMPONENT DIV_N IS
-        GENERIC
-        (
+	COMPONENT DIV2N IS
+		GENERIC
+		(
             N     : NATURAL;
             DELAY : NATURAL := 0
-        );
-        PORT
-        (
-            clrn    : IN  STD_LOGIC;
-            clk_in  : IN  STD_LOGIC;
-            clk_out : OUT STD_LOGIC
-        );
-    END COMPONENT;
+		);
+		PORT
+		(
+			clrn    : IN  STD_LOGIC;
+			clk_in  : IN  STD_LOGIC;
+			clk_out : OUT STD_LOGIC
+		);
+	END COMPONENT;
 	
 BEGIN
 
@@ -73,17 +73,21 @@ BEGIN
 			clk_100k => clk_100k
 		);
 		
-    comp_led : DIV_N
+    comp_led : DIV2N
 		GENERIC MAP
 		(
-			N => 1048576
+			N => 524288
 		)
 		PORT MAP
 		(
-			clrn    => '1',
+			clrn    => clrn,
 			clk_in  => clk_1M2,
 			clk_out => led
 		);
+	
+	blanking <= '0';
+	pin1 <= E1A or E2A;
+	pin2 <= E1B or E2B;
 	
 end Behavior;
 

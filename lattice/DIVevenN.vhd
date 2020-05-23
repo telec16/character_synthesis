@@ -35,7 +35,7 @@ ARCHITECTURE Behavior OF DIVevenN IS
 	
 BEGIN
 
-    PROCESS(clk_in)
+    PROCESS(clrn, clk_in)
     BEGIN
 		IF clrn = '0' THEN
 			count <= STOP - to_unsigned(DELAY, ADDR_LEN);
