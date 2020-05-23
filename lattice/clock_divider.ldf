@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BaliProject version="3.2" title="clock_divider" device="LCMXO2-256HC-5SG32C" default_implementation="clock_divider">
+<BaliProject version="3.2" title="clock_divider" device="LCMXO2-256HC-4SG32C" default_implementation="clock_divider">
     <Options/>
-    <Implementation title="clock_divider" dir="clock_divider" description="clock_divider" synthesis="lse" default_strategy="Strategy1">
+    <Implementation title="clock_divider" dir="clock_divider" description="clock_divider" synthesis="synplify" default_strategy="Strategy1">
         <Options def_top="main"/>
         <Source name="main.vhd" type="VHDL" type_short="VHDL">
             <Options top_module="main"/>
@@ -22,6 +22,9 @@
             <Options/>
         </Source>
         <Source name="clock_divider.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="clock_divider.sdc" type="Synplify Design Constraints File" type_short="SDC">
             <Options/>
         </Source>
     </Implementation>

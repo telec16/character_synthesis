@@ -2,15 +2,15 @@
 
 Based on http://www.glensstuff.com/fouriersynthchargen/fouriersynthchargen.htm
 
-# Front Panel
+## Front Panel
 
 The front panel was made with Galva ( http://www.f5bu.fr/galva-download/ ), in French.
 
-# Clock generation board
+## Clock generation board
 
 /!\ DIVoddN is not synthetizable with Lattice LSE. I use Synplify Pro.
 
-## FPGA pinmap
+### FPGA pinmap
 
 | Name 		| Pin Number | Pin Name | Location  |
 |-----------|------------|----------|-----------|
