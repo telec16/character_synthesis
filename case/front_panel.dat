@@ -1,0 +1,269 @@
+%Offset=75
+CT = 20+%Offset, 20+%Offset
+RefCur = %CTx,%CTy
+
+Police = Lucida Sans
+'Police = Akzidenz Grotesk BE Ex
+TailleP = *1.1
+
+Texte=,70+15,RVB  128 64 0,*1.5GC,20kHz
+Texte=25,70+15,RVB  193 97 0,*1.5GC,40kHz
+Texte=50,70+15,RVB  255 128,*1.5GC,60kHz
+Texte=75,70+15,RVB  240 78 0,*1.5GC,80kHz
+Texte=100,70+15,RVB  255 0 0,*1.5GC,100kHz
+
+Texte=-20,72,,*1.5C,SIN
+Texte=-20,48,,*1.5C,COS
+Texte=-20,22,,*1.5C,SIN
+Texte=-20,-2,,*1.5C,COS
+
+
+CT = 20+%Offset, 20+%Offset
+
+Trait=-40,36,125,36,10񗱎�9,RVB  128 128 128
+
+CT = 20+%Offset-20, 20+%Offset+60
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+TexteC=0,0,-9,90,,*2GC,X
+
+CT = 20+%Offset-20, 20+%Offset+10
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+TexteC=0,0,-9,90,,*2GC,Y
+
+
+
+CT = 20+%Offset, 20+%Offset
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = 20+%Offset, %CTy+20
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+
+
+CT = 20+%Offset, %CTy+30
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = 20+%Offset, %CTy+20
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
+
+CT = %CTx+25, %CTy
+
+PercerX = ,,7,bleu
+DemiLuneP = ,,6,90,-45,3,bleu
+DemiLuneP = ,,6,90,225,3,rouge
+Arc = -45, 225, 6,N
+Grad = 4, 3.5,,,0.1mm, noir
+Grad = 20, 3,,,0.1mm, noir
+Grad = 40, 2,,,0.1mm, noir
+ValD = ,4, -10, 10, 5,,,Noir
