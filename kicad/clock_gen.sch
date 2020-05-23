@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:clock_gen-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -656,7 +655,7 @@ Wire Wire Line
 Text GLabel 9250 4650 0    60   Input ~ 0
 pin2
 Text GLabel 8800 4550 0    60   Input ~ 0
-Blanking
+blanking
 Text GLabel 9250 4450 0    60   Input ~ 0
 clk_20k
 Wire Wire Line
@@ -723,7 +722,7 @@ pin1
 Text GLabel 3650 4300 0    60   Input ~ 0
 pin2
 Text GLabel 3100 4400 0    60   Input ~ 0
-Blanking
+blanking
 Text GLabel 3650 4500 0    60   Input ~ 0
 clk_20k
 Text GLabel 3100 4600 0    60   Input ~ 0
