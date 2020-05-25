@@ -14,7 +14,8 @@ ENTITY DIV2N IS
 	GENERIC
 	(
         N     : NATURAL;
-        DELAY : NATURAL := 0
+        DELAY : NATURAL := 0;
+        INV   : STD_LOGIC := '0'
 	);
 	PORT
 	(
@@ -39,11 +40,12 @@ BEGIN
 			count <= 0 + to_unsigned(DELAY, ADDR_LEN);
         ELSIF rising_edge(clk_in) THEN
 		
-			count <= count - 1;
+			count <= count + 1;
 			
         END IF;
     END PROCESS;
 	
-	clk_out <= count(ADDR_LEN-1);
+	clk_out <= count(ADDR_LEN-1) xor INV WHEN clrn = '1'
+				ELSE '0';
 
 END Behavior;

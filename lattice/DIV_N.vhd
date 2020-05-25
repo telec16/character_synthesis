@@ -14,7 +14,8 @@ ENTITY DIV_N IS
 	GENERIC
 	(
 		N     : NATURAL;
-        DELAY : NATURAL := 0
+        DELAY : NATURAL := 0;
+        INV   : STD_LOGIC := '0'
 	);
 	PORT
 	(
@@ -31,7 +32,8 @@ ARCHITECTURE Behavior OF DIV_N IS
         GENERIC
         (
             N     : NATURAL;
-            DELAY : NATURAL := 0
+            DELAY : NATURAL := 0;
+			INV   : STD_LOGIC := '0'
         );
         PORT
         (
@@ -45,7 +47,8 @@ ARCHITECTURE Behavior OF DIV_N IS
         GENERIC
         (
             N     : NATURAL;
-            DELAY : NATURAL := 0
+            DELAY : NATURAL := 0;
+			INV   : STD_LOGIC := '0'
         );
         PORT
         (
@@ -59,7 +62,8 @@ ARCHITECTURE Behavior OF DIV_N IS
 		GENERIC
 		(
             N     : NATURAL;
-            DELAY : NATURAL := 0
+            DELAY : NATURAL := 0;
+			INV   : STD_LOGIC := '0'
 		);
 		PORT
 		(
@@ -92,7 +96,8 @@ BEGIN
 		GENERIC MAP
 		(
 			N     => N,
-            DELAY => DELAY
+            DELAY => DELAY,
+            INV   => INV
 		)
 		PORT MAP
 		(
@@ -110,7 +115,8 @@ BEGIN
 		GENERIC MAP
 		(
 			N     => N,
-            DELAY => DELAY
+            DELAY => DELAY,
+            INV   => INV
 		)
 		PORT MAP
 		(
@@ -128,7 +134,8 @@ BEGIN
 		GENERIC MAP
 		(
 			N     => N,
-            DELAY => DELAY
+            DELAY => DELAY,
+            INV   => INV
 		)
 		PORT MAP
 		(

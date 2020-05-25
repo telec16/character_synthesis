@@ -14,7 +14,8 @@ ENTITY DIVevenN IS
 	GENERIC
 	(
         N     : NATURAL;
-        DELAY : NATURAL := 0
+        DELAY : NATURAL := 0;
+        INV   : STD_LOGIC := '0'
 	);
 	PORT
 	(
@@ -27,7 +28,7 @@ END DIVevenN;
 
 ARCHITECTURE Behavior OF DIVevenN IS
 	
-	CONSTANT ADDR_LEN  : NATURAL  := NATURAL(ceil(log2(REAL(N))));
+	CONSTANT ADDR_LEN  : NATURAL  := NATURAL (ceil(log2(REAL(N))));
     CONSTANT THRESHOLD : UNSIGNED := to_unsigned(NATURAL(ceil(REAL(N)/2.0))-1, ADDR_LEN);
     CONSTANT STOP      : UNSIGNED := to_unsigned(N-1, ADDR_LEN);
     
@@ -38,19 +39,19 @@ BEGIN
     PROCESS(clrn, clk_in)
     BEGIN
 		IF clrn = '0' THEN
-			count <= STOP - to_unsigned(DELAY, ADDR_LEN);
+			count <= STOP - to_unsigned(DELAY, ADDR_LEN) - 1;
 			clk_out <= '0';
-        ELSIF rising_edge(clk_in) THEN
+        ELSIF RISING_EDGE(clk_in) THEN
 		
 			count <= count + 1;
 			
             IF count = STOP THEN
 				count <= (OTHERS => '0');
-				clk_out <= '1';
+				clk_out <= '0' xor INV;
 			END IF;
 			
 			IF count = THRESHOLD THEN
-				clk_out <= '0';
+				clk_out <= '1' xor INV;
 			END IF;
 			
         END IF;

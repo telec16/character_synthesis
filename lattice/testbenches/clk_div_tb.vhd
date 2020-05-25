@@ -1,13 +1,7 @@
------------------------------------------------------
---                  telec16 2020                   --
---    Creative Commons Attribution-ShareAlike      --
--- https://creativecommons.org/licenses/by-sa/4.0/ --
------------------------------------------------------
-
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 
-ENTITY MAIN_TB IS
+ENTITY CLK_DIV_TB IS
     PORT
     ( 
         clk_020k : OUT STD_LOGIC; -- 20k clock
@@ -16,11 +10,11 @@ ENTITY MAIN_TB IS
         clk_080k : OUT STD_LOGIC; -- 80k clock
         clk_100k : OUT STD_LOGIC  -- 100k clock
     );
-END MAIN_TB;
+END CLK_DIV_TB;
 
-ARCHITECTURE Behavior OF MAIN_TB IS
+ARCHITECTURE Behavior OF CLK_DIV_TB IS
 
-	COMPONENT main IS
+	COMPONENT clk_div IS
     PORT(
             clk_1M2  : IN  STD_LOGIC; -- 1M2 clock
 			clrn     : IN  STD_LOGIC; -- Clear
@@ -39,7 +33,7 @@ ARCHITECTURE Behavior OF MAIN_TB IS
     
 begin
     
-	tb : main
+	tb : clk_div
     PORT MAP
     (
         clk_1M2  => sig_clk,

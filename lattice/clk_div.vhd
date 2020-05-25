@@ -23,7 +23,8 @@ ARCHITECTURE Behavior OF clk_div IS
         GENERIC
         (
             N     : NATURAL;
-            DELAY : NATURAL := 0
+            DELAY : NATURAL := 0;
+			INV   : STD_LOGIC := '0'
         );
         PORT
         (

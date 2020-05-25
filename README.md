@@ -8,7 +8,7 @@ The front panel was made with Galva ( http://www.f5bu.fr/galva-download/ ), in F
 
 ## Clock generation board
 
-/!\ DIVoddN is not synthetizable with Lattice LSE. I use Synplify Pro.
+~/!\ DIVoddN is not synthetizable with Lattice LSE. I use Synplify Pro.~ Actually I don't know what's going on, but it does not correspond to the simulation. The hardware tests show no errors.
 
 ### FPGA pinmap
 

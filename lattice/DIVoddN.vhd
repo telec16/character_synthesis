@@ -14,7 +14,8 @@ ENTITY DIVoddN IS
 	GENERIC
 	(
         N     : NATURAL;
-        DELAY : NATURAL := 0
+        DELAY : NATURAL := 0;
+        INV   : STD_LOGIC := '0'
 	);
 	PORT
 	(
@@ -27,8 +28,8 @@ END DIVoddN;
 
 ARCHITECTURE Behavior OF DIVoddN IS
 
-	CONSTANT ADDR_LEN  : NATURAL  := NATURAL(ceil(log2(REAL(N))));
-    CONSTANT THRESHOLD : UNSIGNED := to_unsigned(NATURAL(ceil(REAL(N)/2.0))-2, ADDR_LEN);
+	CONSTANT ADDR_LEN  : NATURAL  := NATURAL (ceil(log2(REAL(N))));
+    CONSTANT THRESHOLD : UNSIGNED := to_unsigned(NATURAL(ceil(REAL(N)/2.0))-1, ADDR_LEN);
     CONSTANT STOP      : UNSIGNED := to_unsigned(N-1, ADDR_LEN);
     
     SIGNAL count_R : UNSIGNED((ADDR_LEN-1) DOWNTO 0);
@@ -41,40 +42,40 @@ BEGIN
     PROCESS(clrn, clk_in)
     BEGIN
 		IF clrn = '0' THEN
-			count_R <= STOP - to_unsigned(DELAY, ADDR_LEN);
-			count_F <= STOP - to_unsigned(DELAY, ADDR_LEN);
+			count_R <= to_unsigned(DELAY, ADDR_LEN);
+			count_F <= to_unsigned(DELAY, ADDR_LEN);
             clk_R <= '0';
             clk_F <= '0';
             
-        ELSIF rising_edge(clk_in) THEN
+        ELSIF RISING_EDGE(clk_in) THEN
 		
 			count_R <= count_R + 1;
             
             IF count_R = STOP THEN
 				count_R <= (OTHERS => '0');
-				clk_R <= '1';
-			END IF;
-			
-			IF count_R = THRESHOLD THEN
 				clk_R <= '0';
 			END IF;
 			
-        ELSIF falling_edge(clk_in) THEN
+			IF count_R = THRESHOLD THEN
+				clk_R <= '1';
+			END IF;
+			
+        ELSIF FALLING_EDGE(clk_in) THEN
 		
 			count_F <= count_F + 1;
             
             IF count_F = STOP THEN
 				count_F <= (OTHERS => '0');
-				clk_F <= '1';
+				clk_F <= '0';
 			END IF;
 			
 			IF count_F = THRESHOLD THEN
-				clk_F <= '0';
+				clk_F <= '1';
 			END IF;
 			
         END IF;
     END PROCESS;
 	
-	clk_out <= clk_F OR clk_R;
-
+	clk_out <= (clk_F OR clk_R) xor INV WHEN clrn = '1'
+				ELSE '0';
 END Behavior;
