@@ -1,3 +1,5 @@
+-- Made following https://www.digikey.com/eewiki/pages/viewpage.action?pageId=62259228
+
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
@@ -6,16 +8,18 @@ ENTITY encoder IS
 
 	GENERIC
 	(
-        SIZE  : NATURAL;
-		DELAY : NATURAL
+        SIZE    : NATURAL;
+		DELAY   : NATURAL;
+		DEFAULT : NATURAL := 0
 	);
     PORT
 	(
-		clrn     : IN  STD_LOGIC;
-		clk      : IN  STD_LOGIC;
-		A        : IN  STD_LOGIC;
-		B        : IN  STD_LOGIC;
-		position : OUT UNSIGNED((SIZE-1) DOWNTO 0)
+		clrn      : IN  STD_LOGIC;
+		clk       : IN  STD_LOGIC;
+		A         : IN  STD_LOGIC;
+		B         : IN  STD_LOGIC;
+		direction : OUT STD_LOGIC;
+		position  : OUT UNSIGNED((SIZE-1) DOWNTO 0)
 	);
 
 END encoder;
@@ -40,15 +44,17 @@ ARCHITECTURE Behavior OF encoder IS
 		);
 	END COMPONENT;
 	
-	signal A_new : STD_LOGIC;
-	signal B_new : STD_LOGIC;
-	signal A_pre : STD_LOGIC;
-	signal B_pre : STD_LOGIC;
-	signal count : UNSIGNED((SIZE-1) DOWNTO 0);
+	SIGNAL A_new   : STD_LOGIC;
+	SIGNAL B_new   : STD_LOGIC;
+	SIGNAL A_pre   : STD_LOGIC;
+	SIGNAL B_pre   : STD_LOGIC;
+	SIGNAL new_val : BOOLEAN;
+	SIGNAL dir     : STD_LOGIC;
+	SIGNAL count   : UNSIGNED((SIZE-1) DOWNTO 0);
 	
 BEGIN
 
-	deb: debounce
+	deb_i: debounce
 		GENERIC MAP
 		(
 			DELAY => DELAY
@@ -64,16 +70,30 @@ BEGIN
 			A_pre => A_pre,
 			B_pre => B_pre
 		);
-		
-	PROCESS(clrn, clk)
+	
+	new_val <= ((A_pre XOR A_new) OR (B_pre XOR B_new)) = '1';
+	dir <= A_new XOR B_pre;
+	
+	dir_p: PROCESS(clrn, clk)
     BEGIN
 		IF clrn = '0' THEN
-			count <= (OTHERS=>'0');
+			direction <= '0';
         ELSIF rising_edge(clk) THEN
-			IF (A_new = '1' XOR A_pre = '1') OR (B_new = '1' XOR B_pre = '1') THEN
-				IF (A_new = '1') AND (B_new = '0') THEN
+			IF new_val THEN
+				direction <= dir;
+			END IF;
+        END IF;
+    END PROCESS;
+	
+	pos_p: PROCESS(clrn, clk)
+    BEGIN
+		IF clrn = '0' THEN
+			count <= to_unsigned(DEFAULT, SIZE);
+        ELSIF rising_edge(clk) THEN
+			IF new_val THEN
+				IF dir = '1' THEN
 					count <= count + 1;
-				ELSIF (A_new = '0') AND (B_new = '1') THEN
+				ELSE
 					count <= count - 1;
 				END IF;
 			END IF;

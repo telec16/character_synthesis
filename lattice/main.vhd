@@ -21,7 +21,7 @@ ENTITY main IS
 		E1B      : IN  STD_LOGIC; -- Encoder 1, pin B
 		E2A      : IN  STD_LOGIC; -- Encoder 2, pin A
 		E2B      : IN  STD_LOGIC; -- Encoder 2, pin B
-		blanking : OUT STD_LOGIC; -- Blanking output
+		Z        : OUT STD_LOGIC; -- Blanking output
 
 		led	     : OUT STD_LOGIC; -- Debug led
 		pin1     : OUT STD_LOGIC; -- Free pin
@@ -44,19 +44,17 @@ ARCHITECTURE Behavior OF main IS
 		);
 	END COMPONENT;
 	
-	COMPONENT encoder IS
-		GENERIC
-		(
-			SIZE  : NATURAL;
-			DELAY : NATURAL
-		);
+	COMPONENT blanking
 		PORT
 		(
-			clrn     : IN  STD_LOGIC;
-			clk      : IN  STD_LOGIC;
-			A        : IN  STD_LOGIC;
-			B        : IN  STD_LOGIC;
-			position : OUT UNSIGNED((SIZE-1) DOWNTO 0)
+			clrn : IN  STD_LOGIC;
+			rst  : IN  STD_LOGIC;
+			clk  : IN  STD_LOGIC;
+			E1A  : IN  STD_LOGIC;
+			E1B  : IN  STD_LOGIC;
+			E2A  : IN  STD_LOGIC;
+			E2B  : IN  STD_LOGIC;
+			Z    : OUT STD_LOGIC 
 		);
 	END COMPONENT;
 	
@@ -74,9 +72,7 @@ ARCHITECTURE Behavior OF main IS
 		);
 	END COMPONENT;
 	
-	constant SIZE : NATURAL := 8;
-	
-	signal position : UNSIGNED((SIZE-1) DOWNTO 0);
+	SIGNAL clk_020k_sig : STD_LOGIC;
 	
 BEGIN
 
@@ -85,41 +81,39 @@ BEGIN
 		(
 			clrn     => clrn,
 			clk_1M2  => clk_1M2,
-			clk_020k => clk_020k,
+			clk_020k => clk_020k_sig,
 			clk_040k => clk_040k,
 			clk_060k => clk_060k,
 			clk_080k => clk_080k,
 			clk_100k => clk_100k
 		);
+	clk_020k <= clk_020k_sig;
 		
-	enc : encoder
-		GENERIC MAP
-		(
-			SIZE  => SIZE,
-			DELAY => 1
-		)
+	blanking_i : blanking
 		PORT MAP
 		(
-			clrn     => clrn,
-			clk      => clk_1M2,
-			A        => E1A,
-			B        => E1B,
-			position => position
+			clrn => clrn,
+			rst  => clk_020k_sig,
+			clk  => clk_1M2,
+			E1A  => E1A,
+			E1B  => E1B,
+			E2A  => E2A,
+			E2B  => E2B,
+			Z    => Z
 		);
 
     comp_led : DIV2N
 		GENERIC MAP
 		(
-			N => 524288
+			N => 10_000
 		)
 		PORT MAP
 		(
 			clrn    => clrn,
-			clk_in  => clk_1M2,
+			clk_in  => clk_020k_sig,
 			clk_out => led
 		);
-	
-	blanking <= '0';
+		
 	pin1 <= E1A or E2A;
 	pin2 <= E1B or E2B;
 	
